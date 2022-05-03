@@ -1,13 +1,12 @@
-from kivy.app import App
-from kivy.uix.widget import Widget
-from kivy.properties import ObjectProperty
-from kivy.lang import Builder
 from kivy.core.window import Window
-from kivy.uix.boxlayout import BoxLayout
+from kivy.lang import Builder
+from kivy.properties import ObjectProperty
+from kivy.uix.widget import Widget
+from kivy.app import App
 
 Window.size = (500, 700)
 
-Builder.load_file('calc.kv')
+Builder.load_file('calch.kv')
 
 
 class MyLayout(Widget):
