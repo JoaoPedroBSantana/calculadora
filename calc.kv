@@ -12,7 +12,7 @@
                 ActionSeparator:
                 ActionButton:
                     text:'Hexadecimal'
-                    on_release:app.root.current = 'C:\Python\calchexa.py'
+                    on_release:app.root.current = 'C:\Python\calculadora\calchexa.py'
                 ActionSeparator:
                 ActionButton:
                     text:'Octal'
@@ -21,11 +21,17 @@
                     text:'sair'
                     on_release:app.stop()             
         TextInput:
+            id: calc_novo
+            text: "0"
+            halign: "right"
+            font_size: 30
+            size_hint: (1, .10)
+        TextInput:
             id: calc_input
             text: "0"
             halign: "right"
-            font_size: 65
-            size_hint: (1, .15)
+            font_size: 50
+            size_hint: (1, .15) 
 
         GridLayout:
             cols: 5
@@ -42,6 +48,7 @@
                 size_hint: (.2, .2)
                 font_size: 32
                 text: "%"
+                on_press: root.percent()
             Button:
                 size_hint: (.2, .2)
                 font_size: 32
@@ -122,7 +129,10 @@
             Button:
                 size_hint: (.2, .2)
                 font_size: 32
-                text: "NADS"
+                text: "DEC"
+                color: 1, 0, 0
+                background_color: (255,140,0)
+                on_press: root.dec()
             Button:
                 size_hint: (.2, .2)
                 font_size: 32

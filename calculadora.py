@@ -13,9 +13,11 @@ Builder.load_file('calc.kv')
 class MyLayout(Widget):
     def clear(self):
         self.ids.calc_input.text = '0'
+        self.ids.calc_novo.text = '0'
 
     def button_press(self, button):
         prior = self.ids.calc_input.text
+        resul = self.ids.calc_novo.text
 
         if "Erro" in prior:
             prior = ''
@@ -68,6 +70,10 @@ class MyLayout(Widget):
         prior = self.ids.calc_input.text
         self.ids.calc_input.text = f'{prior}/'
 
+    def percent(self):
+        prior = self.ids.calc_input.text
+        self.ids.calc_input.text = f'{prior}%'
+
     def bin(self):
         prior = self.ids.calc_input.text
         try:
@@ -95,6 +101,15 @@ class MyLayout(Widget):
         except:
             self.ids.calc_input.text = "Erro"
 
+    def dec(self):
+        prior = self.ids.calc_input.text
+        try:
+            entrada = eval(prior)
+            entrada = int(entrada)
+            self.ids.calc_input.text = f'{format(entrada, "o")}'
+        except:
+            self.ids.calc_input.text = "Erro"
+
     def equals(self):
         prior = self.ids.calc_input.text
         try:
@@ -102,15 +117,6 @@ class MyLayout(Widget):
             self.ids.calc_input.text = str(answer)
         except:
             self.ids.calc_input.text = "Erro"
-
-    """ if "+" in prior:
-            num_list = prior.split("+")
-            answer = 0.0
-            for number in num_list:
-                answer = answer + float(number)
-
-            self.ids.calc_input.text = str(answer)
-        """
 
 
 class CalculadoraApp(App):

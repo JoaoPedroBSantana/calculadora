@@ -67,8 +67,46 @@ class MyLayout(Widget):
         prior = self.ids.calc_input.text
         self.ids.calc_input.text = f'{prior}/'
 
+    def dec(self):
+        self.ids.btn_2.disabled = False
+        self.ids.btn_3.disabled = False
+        self.ids.btn_4.disabled = False
+        self.ids.btn_5.disabled = False
+        self.ids.btn_6.disabled = False
+        self.ids.btn_7.disabled = False
+        self.ids.btn_8.disabled = False
+        self.ids.btn_9.disabled = False
+        self.ids.btn_dot.disable = False
+        self.ids.btn_A.disabled = True
+        self.ids.btn_B.disabled = True
+        self.ids.btn_C.disabled = True
+        self.ids.btn_D.disabled = True
+        self.ids.btn_E.disabled = True
+        self.ids.btn_F.disabled = True
+        prior = self.ids.calc_input.text
+        try:
+            prior = eval(prior)
+            self.ids.calc_input.text = int('prior', 2)
+        except:
+            self.ids.calc_input.text = ''
+
     def bin(self):
         prior = self.ids.calc_input.text
+        self.ids.btn_2.disabled = True
+        self.ids.btn_3.disabled = True
+        self.ids.btn_4.disabled = True
+        self.ids.btn_5.disabled = True
+        self.ids.btn_6.disabled = True
+        self.ids.btn_7.disabled = True
+        self.ids.btn_8.disabled = True
+        self.ids.btn_9.disabled = True
+        self.ids.btn_A.disabled = True
+        self.ids.btn_B.disabled = True
+        self.ids.btn_C.disabled = True
+        self.ids.btn_D.disabled = True
+        self.ids.btn_E.disabled = True
+        self.ids.btn_F.disabled = True
+        self.ids.btn_dot.disabled = True
         try:
             entrada = eval(prior)
             entrada = int(entrada)
@@ -78,6 +116,21 @@ class MyLayout(Widget):
 
     def hex(self):
         prior = self.ids.calc_input.text
+        self.ids.btn_2.disabled = False
+        self.ids.btn_3.disabled = False
+        self.ids.btn_4.disabled = False
+        self.ids.btn_5.disabled = False
+        self.ids.btn_6.disabled = False
+        self.ids.btn_7.disabled = False
+        self.ids.btn_8.disabled = False
+        self.ids.btn_9.disabled = False
+        self.ids.btn_A.disabled = False
+        self.ids.btn_B.disabled = False
+        self.ids.btn_C.disabled = False
+        self.ids.btn_D.disabled = False
+        self.ids.btn_E.disabled = False
+        self.ids.btn_F.disabled = False
+        self.ids.btn_dot.disabled = True
         try:
             entrada = eval(prior)
             entrada = int(entrada)
@@ -87,6 +140,21 @@ class MyLayout(Widget):
 
     def oct(self):
         prior = self.ids.calc_input.text
+        self.ids.btn_2.disabled = False
+        self.ids.btn_3.disabled = False
+        self.ids.btn_4.disabled = False
+        self.ids.btn_5.disabled = False
+        self.ids.btn_6.disabled = False
+        self.ids.btn_7.disabled = True
+        self.ids.btn_8.disabled = True
+        self.ids.btn_9.disabled = True
+        self.ids.btn_A.disabled = True
+        self.ids.btn_B.disabled = True
+        self.ids.btn_C.disabled = True
+        self.ids.btn_D.disabled = True
+        self.ids.btn_E.disabled = True
+        self.ids.btn_F.disabled = True
+        self.ids.btn_dot.disabled = True
         try:
             entrada = eval(prior)
             entrada = int(entrada)
@@ -101,15 +169,6 @@ class MyLayout(Widget):
             self.ids.calc_input.text = str(answer)
         except:
             self.ids.calc_input.text = "Erro"
-
-    """ if "+" in prior:
-            num_list = prior.split("+")
-            answer = 0.0
-            for number in num_list:
-                answer = answer + float(number)
-
-            self.ids.calc_input.text = str(answer)
-        """
 
 
 class CalculadoraApp(App):
